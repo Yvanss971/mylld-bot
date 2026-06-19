@@ -16,6 +16,11 @@ logger = setup_console_logger("cogs.polls")
 COLLECTION = "polls"
 
 
+def parse_dt(value: str) -> datetime:
+    dt = datetime.fromisoformat(value)
+    return dt if dt.tzinfo is not None else dt.replace(tzinfo=timezone.utc)
+
+
 # ──────────────────────────────────────────────
 # Utilitaires
 # ──────────────────────────────────────────────
@@ -162,7 +167,7 @@ class PollButton(discord.ui.Button):
         # Met à jour l'embed
         try:
             author   = interaction.guild.get_member(poll["author_id"])
-            end_time = datetime.fromisoformat(poll["end_time"]) if poll.get("end_time") else None
+            end_time = parse_dt(poll["end_time"]) if poll.get("end_time") else None
             embed    = build_poll_embed(
                 question=poll["question"],
                 choices=choices,
@@ -236,7 +241,7 @@ class PollsCog(commands.Cog, name="Sondages"):
                 for poll in active_polls:
                     if not poll.get("end_time"):
                         continue
-                    end_time = datetime.fromisoformat(poll["end_time"])
+                    end_time = parse_dt(poll["end_time"])
                     if now >= end_time:
                         await self._end_poll(poll["message_id"], poll)
 
@@ -444,7 +449,7 @@ class PollsCog(commands.Cog, name="Sondages"):
 
         for poll in active[:10]:
             total_votes = sum(len(v) for v in poll.get("votes", {}).values())
-            end_time    = datetime.fromisoformat(poll["end_time"]) if poll.get("end_time") else None
+            end_time    = parse_dt(poll["end_time"]) if poll.get("end_time") else None
             end_str     = f"<t:{int(end_time.timestamp())}:R>" if end_time else "Pas de limite"
 
             embed.add_field(

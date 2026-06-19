@@ -15,6 +15,12 @@ logger = setup_console_logger("cogs.giveaway")
 COLLECTION = "giveaways"
 
 
+def parse_dt(value: str) -> datetime:
+    """Convertit une ISO string en datetime UTC-aware (compatible données naive legacy)."""
+    dt = datetime.fromisoformat(value)
+    return dt if dt.tzinfo is not None else dt.replace(tzinfo=timezone.utc)
+
+
 # ──────────────────────────────────────────────
 # Utilitaires
 # ──────────────────────────────────────────────
@@ -199,7 +205,7 @@ class GiveawayView(discord.ui.View):
             # Mise à jour de l'embed
             try:
                 host     = interaction.guild.get_member(giveaway["host_id"])
-                end_time = datetime.fromisoformat(giveaway["end_time"])
+                end_time = parse_dt(giveaway["end_time"])
                 embed    = build_giveaway_embed(
                     prize=giveaway["prize"],
                     winners=giveaway["winners"],
@@ -243,7 +249,7 @@ class GiveawayCog(commands.Cog, name="Giveaway"):
                 all_giveaways = await db_get_all(COLLECTION, {"ended": False})
                 now           = datetime.now(timezone.utc)
                 for giveaway in all_giveaways:
-                    end_time = datetime.fromisoformat(giveaway["end_time"])
+                    end_time = parse_dt(giveaway["end_time"])
                     if now >= end_time:
                         await self._end_giveaway(giveaway["message_id"], giveaway)
             except Exception as e:
@@ -271,7 +277,7 @@ class GiveawayCog(commands.Cog, name="Giveaway"):
             return
 
         host     = channel.guild.get_member(giveaway["host_id"])
-        end_time = datetime.fromisoformat(giveaway["end_time"])
+        end_time = parse_dt(giveaway["end_time"])
 
         embed = build_giveaway_embed(
             prize=giveaway["prize"],
@@ -430,7 +436,7 @@ class GiveawayCog(commands.Cog, name="Giveaway"):
             return
         embed = discord.Embed(title="🎁 Giveaways actifs", color=settings.COLOR_INFO, timestamp=datetime.now(timezone.utc))
         for gw in active[:10]:
-            end_time        = datetime.fromisoformat(gw["end_time"])
+            end_time        = parse_dt(gw["end_time"])
             channel         = self.bot.get_channel(gw["channel_id"])
             channel_mention = channel.mention if channel else "Salon inconnu"
             reqs            = []
