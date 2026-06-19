@@ -343,6 +343,80 @@ class TicketsCog(commands.Cog, name="Tickets"):
         await save_config(ctx.guild.id, config)
         await ctx.send(f"✅ Logs définis dans {salon.mention}.", ephemeral=True)
 
+    @ticket_config_group.command(name="type-add", description="Ajoute un type de ticket au panel.")
+    @app_commands.describe(
+        label="Nom du type (ex: Support)",
+        emoji="Emoji du bouton (ex: 🎫)",
+        description="Description courte",
+        style="Couleur du bouton",
+    )
+    @app_commands.choices(style=[
+        app_commands.Choice(name="Bleu (primary)",   value="primary"),
+        app_commands.Choice(name="Vert (success)",   value="success"),
+        app_commands.Choice(name="Rouge (danger)",   value="danger"),
+        app_commands.Choice(name="Gris (secondary)", value="secondary"),
+    ])
+    async def config_type_add(
+        self,
+        ctx: commands.Context,
+        label: str,
+        emoji: str = "🎫",
+        description: str = "Ouvre un ticket",
+        style: str = "primary",
+    ) -> None:
+        config = await load_config(ctx.guild.id)
+        types  = config.get("types", [])
+        if any(t["label"].lower() == label.lower() for t in types):
+            await ctx.send(f"❌ Type **{label}** existe déjà.", ephemeral=True)
+            return
+        types.append({"label": label, "emoji": emoji, "description": description, "style": style})
+        config["types"] = types
+        await save_config(ctx.guild.id, config)
+        await ctx.send(f"✅ Type **{emoji} {label}** ajouté. ({len(types)} type(s) au total)", ephemeral=True)
+
+    @ticket_config_group.command(name="type-remove", description="Supprime un type de ticket.")
+    @app_commands.describe(label="Nom du type à supprimer")
+    async def config_type_remove(self, ctx: commands.Context, label: str) -> None:
+        config = await load_config(ctx.guild.id)
+        types  = config.get("types", [])
+        new    = [t for t in types if t["label"].lower() != label.lower()]
+        if len(new) == len(types):
+            await ctx.send(f"❌ Type **{label}** introuvable.", ephemeral=True)
+            return
+        config["types"] = new
+        await save_config(ctx.guild.id, config)
+        await ctx.send(f"✅ Type **{label}** supprimé.", ephemeral=True)
+
+    @ticket_config_group.command(name="type-list", description="Liste les types de tickets configurés.")
+    async def config_type_list(self, ctx: commands.Context) -> None:
+        config = await load_config(ctx.guild.id)
+        types  = config.get("types", [])
+        if not types:
+            await ctx.send("❌ Aucun type configuré. Utilise `/ticket-config type-add`.", ephemeral=True)
+            return
+        desc = "\n".join(f"{t['emoji']} **{t['label']}** — {t['description']}" for t in types)
+        embed = discord.Embed(title="🎫 Types de tickets", description=desc, color=settings.COLOR_INFO)
+        await ctx.send(embed=embed, ephemeral=True)
+
+    @ticket_config_group.command(name="panel-set", description="Configure le titre et la description du panel.")
+    @app_commands.describe(titre="Titre du panel", description="Description du panel")
+    async def config_panel_set(self, ctx: commands.Context, titre: str, description: str) -> None:
+        config = await load_config(ctx.guild.id)
+        config.setdefault("panel", {})
+        config["panel"]["title"]       = titre
+        config["panel"]["description"] = description
+        await save_config(ctx.guild.id, config)
+        await ctx.send(f"✅ Panel configuré.\n**Titre :** {titre}\n**Description :** {description}", ephemeral=True)
+
+    @ticket_config_group.command(name="toggle", description="Active ou désactive le système de tickets.")
+    async def config_toggle(self, ctx: commands.Context) -> None:
+        config  = await load_config(ctx.guild.id)
+        enabled = not config.get("enabled", False)
+        config["enabled"] = enabled
+        await save_config(ctx.guild.id, config)
+        état = "✅ activé" if enabled else "❌ désactivé"
+        await ctx.send(f"Système de tickets {état}.", ephemeral=True)
+
 
 async def setup(bot: commands.Bot) -> None:
     await bot.add_cog(TicketsCog(bot))
