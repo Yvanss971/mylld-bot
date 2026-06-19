@@ -13,7 +13,7 @@ async def get_db():
     global _client, _db
     if _db is None:
         _client = motor.motor_asyncio.AsyncIOMotorClient(settings.MONGODB_URI)
-        _db     = _client.fantoma_bot
+        _db = _client.mylld_bot
         logger.info("✅ Connexion MongoDB établie.")
     return _db
 
