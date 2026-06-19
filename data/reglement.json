@@ -1,0 +1,80 @@
+{
+  "server_name": "Fantoma",
+  "footer_text": "En rejoignant Fantoma, vous acceptez l'ensemble de ces règles.",
+  "sections": [
+    {
+      "id": "intro",
+      "title": "👑 Bienvenue sur Fantoma",
+      "color": "PRIMARY",
+      "thumbnail": null,
+      "rules": [
+        "Sur **Fantoma** les règles sont simples mais strictes.",
+        "Pas de harcèlement.",
+        "Pas d'abus de parole ou de permissions.",
+        "Respect mutuel et de la hiérarchie.",
+        "Accueil de tout arrivant.",
+        "**Amour, Paix, Prospérité.** 💜"
+      ]
+    },
+    {
+      "id": "embrouille",
+      "title": "⚔️ Les Embrouilles",
+      "color": "ERROR",
+      "thumbnail": null,
+      "rules": [
+        "On sera **sévère** sur les disputes — nous sommes owners : **Nana, Mariama, Laya et Yvanss** (Doua quand elle sera là).",
+        "Toute dispute sera **immédiatement supprimée** puis réglée par un owner et non un modo.",
+        "Si un harcèlement est signalé : **ban sans chercher à comprendre**.",
+        "Nous avons déjà fait face à des embrouilles, nous savons quelle procédure prendre.",
+        "**N'apportez pas de problème, histoire, rumeur ou autre sur ce serveur.**"
+      ]
+    },
+    {
+      "id": "menaces",
+      "title": "🚨 Menaces — Sanction Immédiate",
+      "color": "ERROR",
+      "thumbnail": null,
+      "rules": [
+        "Les éléments suivants entraînent une **sanction immédiate sans avertissement** :",
+        "~ **Dox** (divulgation d'informations personnelles)",
+        "~ **Menace de mort**",
+        "~ Tout rapport à la religion utilisé comme insulte ou menace"
+      ]
+    },
+    {
+      "id": "couples",
+      "title": "♡ Règles pour les Couples",
+      "color": "INFO",
+      "thumbnail": null,
+      "rules": [
+        "Pas de rupture dans le chat.",
+        "Respect des autres couples."
+      ]
+    },
+    {
+      "id": "staff",
+      "title": "🛡️ Règles du Staff",
+      "color": "WARNING",
+      "thumbnail": null,
+      "rules": [
+        "Pas d'abus de permissions.",
+        "Respect de la hiérarchie.",
+        "Écoute de chaque membre.",
+        "Rester actif sous peine de **derank**.",
+        "Le reste sera vu directement avec les owners."
+      ]
+    },
+    {
+      "id": "sanctions",
+      "title": "⚖️ Sanctions & Modération",
+      "color": "NEUTRAL",
+      "thumbnail": null,
+      "rules": [
+        "Les sanctions sont progressives : **avertissement → mute → kick → ban**.",
+        "Un ban direct sera appliqué pour les cas graves (menaces, dox, harcèlement).",
+        "Contester une sanction se fait en privé avec un **owner**, jamais en public.",
+        "Tenter de contourner un ban entraîne un bannissement définitif."
+      ]
+    }
+  ]
+}

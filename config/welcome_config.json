@@ -1,0 +1,35 @@
+{
+  "welcome": {
+    "enabled": true,
+    "channel_id": 1500591962947063929,
+    "title": "Bienvenue sur Fantoma ! 👑",
+    "description": "Heureux de t'accueillir {mention} !\nPrends le temps de lire le **règlement** et profite bien du serveur. 💜",
+    "color": "PRIMARY",
+    "show_member_count": true,
+    "footer": "Fantoma • Amour, Paix, Prospérité",
+    "image_url": null,
+    "banner_url": "https://discord.com/channels/1500486890686517298/1500521187535749254/1505896271196721254",
+    "thumbnail": "avatar"
+  },
+  "goodbye": {
+    "enabled": true,
+    "channel_id": 1500524975218491496,
+    "title": "Un membre nous a quitté... 👋",
+    "description": "**{username}** vient de quitter Fantoma.\nOn espère te revoir bientôt ! 💜",
+    "color": "NEUTRAL",
+    "show_member_count": true,
+    "footer": "Fantoma • Amour, Paix, Prospérité",
+    "banner_url": "https://discord.com/channels/1500486890686517298/1500521187535749254/1505896259557527703"
+  },
+  "return": {
+    "enabled": true,
+    "channel_id": null,
+    "title": "Bon retour sur Fantoma ! 🎉",
+    "description": "Content de te revoir {mention} ! Tu nous avais manqué. 💜",
+    "color": "SUCCESS",
+    "show_member_count": true,
+    "footer": "Fantoma • Amour, Paix, Prospérité",
+    "image_url": null,
+    "thumbnail": "avatar"
+  }
+}

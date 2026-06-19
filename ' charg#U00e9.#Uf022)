@@ -1,0 +1,10 @@
+[33m1050003[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m fix: persistance configs MongoDB + cache + perf
+[33m89c39fc[m fix: persistance configs serveur + merge non-destructif
+[33ma75dc11[m perf: cache TTL + aggregation MongoDB + help v5
+[33m8fc6501[m feat: système multiplicateurs XP par salon et rôle
+[33m0e65b58[m fix: defer bouton giveaway, str(user_id) levels/economy
+[33m2087c9d[m Improve error handling in giveaway participation
+[33m1ab3865[m fix: user_id cast str pour levels/economy dans check_requirements
+[33mb09faf2[m feat: invites dans help.py, giveaway conditions, {inviter} welcome
+[33m84ac84f[m fix: get_all → db_get_all dans invites.py
+[33mf845757[m feat: invitations tracking, inviteur dans welcome, conditions giveaway

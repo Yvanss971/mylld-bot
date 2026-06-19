@@ -1,0 +1,22 @@
+{
+  "autorole_id": null,
+  "level_roles": [
+    { "level": 5,  "role_id": 1500576150068662282, "name": "Actif" },
+    { "level": 10, "role_id": 1500576223900991689, "name": "Régulier" },
+    { "level": 15, "role_id": 1500576293065064518, "name": "Vétéran" },
+    { "level": 20, "role_id": 1500576337772024048, "name": "Légende" }
+  ],
+  "choice_roles": [
+    {
+      "id": "genre",
+      "label": "Panneaux de rôles",
+      "description": "Choisis tes rôles personnalisés",
+      "roles": [
+        { "role_id": 1500577164834111769, "label": "Gamer",      "emoji": "🎮" },
+        { "role_id": 1500577386671112315, "label": "Musique",     "emoji": "🎵" },
+        { "role_id": 1500577581400064234, "label": "Créatif",     "emoji": "🎨" },
+        { "role_id": 1500577772769247273, "label": "Séries/Films","emoji": "📺" }
+      ]
+    }
+  ]
+}

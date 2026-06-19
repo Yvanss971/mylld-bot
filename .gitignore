@@ -1,0 +1,21 @@
+# Environnement
+.env
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.lnk
+
+# Données dynamiques — NE PAS écraser sur NexusHost
+data/levels.json
+data/warns.json
+data/tickets.json
+data/members_seen.json
+data/giveaways.json
+data/transcripts/
+data/assets/
+data/.bot_stopped
+
+# Garder la structure du dossier data/
+!data/.gitkeep
+!data/reglement.json

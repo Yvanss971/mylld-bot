@@ -1,0 +1,31 @@
+{
+  "enabled": true,
+  "alert_channel_id": null,
+  "staff_role_id": null,
+  "lockdown_active": false,
+  "thresholds": {
+    "join_flood": {
+      "enabled": true,
+      "max_joins": 3,
+      "interval_seconds": 10,
+      "action": "lockdown_and_mute"
+    },
+    "new_account": {
+      "enabled": true,
+      "min_age_days": 7,
+      "action": "ban"
+    },
+    "mass_mention": {
+      "enabled": true,
+      "max_mentions": 10,
+      "interval_seconds": 10,
+      "action": "ban"
+    },
+    "mass_spam": {
+      "enabled": true,
+      "max_same_messages": 5,
+      "interval_seconds": 10,
+      "action": "ban"
+    }
+  }
+}

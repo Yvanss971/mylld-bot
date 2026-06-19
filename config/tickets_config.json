@@ -1,0 +1,67 @@
+{
+  "enabled": true,
+  "category_id": 1500592573918609428,
+  "log_channel_id": 1500592788964774171,
+  "max_tickets_per_user": 2,
+  "panel": {
+    "title": "🎫 Système de Tickets — Fantoma",
+    "description": "Merci de sélectionner la catégorie qui correspond à ta demande afin que notre équipe puisse t'aider le plus rapidement et efficacement possible.\n\nClique sur le bouton correspondant ci-dessous pour ouvrir ton ticket. Un membre de l'équipe te prendra en charge dans les plus brefs délais.",
+    "color": "PRIMARY"
+  },
+  "ticket": {
+    "save_transcript": true,
+    "name_format": "{type}-{username}"
+  },
+  "types": [
+    {
+      "id": "abus",
+      "label": "Ticket Abus",
+      "emoji": "🛡️",
+      "color": "ERROR",
+      "description": "Signalement de problèmes ou conflits entre membres du staff, ainsi que tout abus de permissions sur le serveur.",
+      "welcome_message": "👋 Bienvenue {mention} !\nTu as ouvert un ticket **Abus**. Décris le problème en détail, un membre du staff te répondra rapidement.",
+      "staff_role_id": 1500508895695605860,
+      "style": "danger"
+    },
+    {
+      "id": "candidature",
+      "label": "Ticket Candidature",
+      "emoji": "📋",
+      "color": "SUCCESS",
+      "description": "Candidatures pour rejoindre l'équipe du staff.",
+      "welcome_message": "👋 Bienvenue {mention} !\nTu as ouvert une **candidature**. Présente-toi et explique pourquoi tu veux rejoindre l'équipe.",
+      "staff_role_id": 1500508895695605860,
+      "style": "success"
+    },
+    {
+      "id": "plainte",
+      "label": "Ticket Plainte",
+      "emoji": "⚖️",
+      "color": "WARNING",
+      "description": "Pour les problèmes entre membres : insultes, harcèlement, pressions, conflits ou autres situations nécessitant une intervention.",
+      "welcome_message": "👋 Bienvenue {mention} !\nTu as ouvert une **plainte**. Décris ton problème en détail, un membre du staff te répondra rapidement.",
+      "staff_role_ids": [1500508895695605860, 1508121719762718842],
+      "style": "secondary"
+    },
+    {
+      "id": "owner",
+      "label": "Ticket Owner",
+      "emoji": "👑",
+      "color": "WARNING",
+      "description": "Problèmes majeurs ou urgents nécessitant l'intervention exclusive des Owner.",
+      "welcome_message": "👋 Bienvenue {mention} !\nTu as ouvert un ticket **Owner**. Explique ton problème, un owner te répondra dès que possible.",
+      "staff_role_id": 1500508895695605860,
+      "style": "primary"
+    },
+    {
+      "id": "partenariat",
+      "label": "Ticket Partenariat",
+      "emoji": "🤝",
+      "color": "INFO",
+      "description": "Pour toute demande de partenariat avec le serveur.",
+      "welcome_message": "👋 Bienvenue {mention} !\nTu as ouvert un ticket **Partenariat**. Présente ton serveur et ta demande en détail.",
+      "staff_role_id": 1500508895695605860,
+      "style": "secondary"
+    }
+  ]
+}

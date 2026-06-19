@@ -1,0 +1,51 @@
+{
+  "xp_per_message": 15,
+  "xp_cooldown_seconds": 60,
+  "xp_randomness": 10,
+  "ignored_channels": [],
+  "channel_multipliers": {},
+  "role_multipliers": {},
+  "level_up_channel_id": null,
+  "level_up_dm": false,
+  "color_rank": "PRIMARY",
+  "color_levelup": "SUCCESS",
+  "color_leaderboard": "INFO",
+  "voice_xp": {
+    "enabled": true,
+    "xp_per_interval": 10,
+    "interval_seconds": 120,
+    "ignore_muted": true,
+    "ignore_deafened": true,
+    "ignore_afk": true,
+    "ignore_alone": true
+  },
+  "rank_card": {
+    "background_color": [30, 31, 34],
+    "accent_color": [88, 101, 242],
+    "bar_empty_color": [50, 52, 58],
+    "text_color": [255, 255, 255],
+    "subtext_color": [180, 180, 180]
+  },
+  "levels": [
+    { "level": 1,  "xp_required": 0 },
+    { "level": 2,  "xp_required": 100 },
+    { "level": 3,  "xp_required": 250 },
+    { "level": 4,  "xp_required": 500 },
+    { "level": 5,  "xp_required": 1000 },
+    { "level": 6,  "xp_required": 1750 },
+    { "level": 7,  "xp_required": 2750 },
+    { "level": 8,  "xp_required": 4000 },
+    { "level": 9,  "xp_required": 5500 },
+    { "level": 10, "xp_required": 7500 },
+    { "level": 11, "xp_required": 10000 },
+    { "level": 12, "xp_required": 13000 },
+    { "level": 13, "xp_required": 16500 },
+    { "level": 14, "xp_required": 20500 },
+    { "level": 15, "xp_required": 25000 },
+    { "level": 16, "xp_required": 30000 },
+    { "level": 17, "xp_required": 36000 },
+    { "level": 18, "xp_required": 43000 },
+    { "level": 19, "xp_required": 51000 },
+    { "level": 20, "xp_required": 60000 }
+  ]
+}

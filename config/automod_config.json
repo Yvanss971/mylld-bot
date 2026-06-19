@@ -1,0 +1,68 @@
+{
+  "enabled": true,
+  "exempt_channels": [
+    1500501180802142359, 1500521187535749254
+  ],
+  "exempt_roles": [],
+  "log_channel_id": 1500533553090269184,
+  "rules": {
+    "anti_spam": {
+      "enabled": true,
+      "max_messages": 5,
+      "interval_seconds": 5,
+      "action": "mute",
+      "mute_duration_seconds": 300
+    },
+    "anti_mentions": {
+      "enabled": true,
+      "max_mentions": 5,
+      "action": "delete_warn"
+    },
+    "anti_caps": {
+      "enabled": false,
+      "min_length": 10,
+      "max_percent": 70,
+      "action": "delete_warn"
+    },
+    "anti_links": {
+      "enabled": false,
+      "allowed_domains": [
+        "youtube.com",
+        "youtu.be",
+        "twitch.tv"
+      ],
+      "action": "delete_warn"
+    },
+    "anti_repeat": {
+      "enabled": true,
+      "max_repeats": 3,
+      "interval_seconds": 10,
+      "action": "delete_warn"
+    },
+    "anti_insults": {
+      "enabled": true,
+      "words": [
+        "salope",
+        "pute",
+        "leh",
+        "nigger",
+        "negro"
+        "nigga"
+        "foutre"
+      ],
+      "action": "delete_warn"
+    },
+    "anti_raid": {
+      "enabled": false,
+      "max_joins": 5,
+      "interval_seconds": 30,
+      "mute_duration_seconds": 600,
+      "action": "timeout_log"
+    }
+  },
+  "warn_thresholds": {
+    "3": "mute",
+    "5": "kick",
+    "7": "ban"
+  }
+}
