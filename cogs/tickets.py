@@ -153,7 +153,8 @@ class TicketsCog(commands.Cog, name="Tickets"):
             return
 
         category   = guild.get_channel(config["category_id"]) if config.get("category_id") else None
-        staff_role = guild.get_role(ticket_type["staff_role_id"]) if ticket_type.get("staff_role_id") else None
+        staff_role_id = ticket_type.get("staff_role_id") or (ticket_type.get("staff_role_ids") or [None])[0]
+        staff_role = guild.get_role(staff_role_id) if staff_role_id else None
 
         overwrites = {
             guild.default_role: discord.PermissionOverwrite(view_channel=False),
