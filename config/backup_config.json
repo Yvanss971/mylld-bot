@@ -1,0 +1,7 @@
+{
+  "enabled": true,
+  "interval_hours": 12,
+  "log_channel_id": null,
+  "max_backups": 10,
+  "last_backup": null
+}
